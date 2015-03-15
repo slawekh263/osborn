@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="de2c6b4f-200e-476c-9293-ed001ef1adc3" activeEnvironment="Default" name="WageCalculator" resourceRoot="" soapui-version="5.1.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="f0a8d93e-1e80-4bd3-8415-7beef8460635" wsaVersion="NONE" name="WageCalculatorSoapBinding" type="wsdl" bindingName="{http://server.wagec.osborn.j45.org/}WageCalculatorSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:9010/wageCalculator?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9010/wageCalculator?wsdl"><con:part><con:url>http://localhost:9010/wageCalculator?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="WageCalculator" targetNamespace="http://server.wagec.osborn.j45.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://server.wagec.osborn.j45.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://server.wagec.osborn.j45.org/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getNetIncome" type="tns:getNetIncome"/>
+      <xs:element name="getNetIncomeResponse" type="tns:getNetIncomeResponse"/>
+      <xs:element name="getSocialCosts" type="tns:getSocialCosts"/>
+      <xs:element name="getSocialCostsResponse" type="tns:getSocialCostsResponse"/>
+      <xs:complexType name="getSocialCosts">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSocialCostsResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:float"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNetIncome">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:float"/>
+          <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNetIncomeResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:float"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getNetIncome">
+    <wsdl:part element="tns:getNetIncome" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSocialCostsResponse">
+    <wsdl:part element="tns:getSocialCostsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNetIncomeResponse">
+    <wsdl:part element="tns:getNetIncomeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSocialCosts">
+    <wsdl:part element="tns:getSocialCosts" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WageCalculator">
+    <wsdl:operation name="getSocialCosts">
+      <wsdl:input message="tns:getSocialCosts" name="getSocialCosts"></wsdl:input>
+      <wsdl:output message="tns:getSocialCostsResponse" name="getSocialCostsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNetIncome">
+      <wsdl:input message="tns:getNetIncome" name="getNetIncome"></wsdl:input>
+      <wsdl:output message="tns:getNetIncomeResponse" name="getNetIncomeResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WageCalculatorSoapBinding" type="tns:WageCalculator">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getNetIncome">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNetIncome">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNetIncomeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSocialCosts">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSocialCosts">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSocialCostsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WageCalculator">
+    <wsdl:port binding="tns:WageCalculatorSoapBinding" name="WageCalculatorImplPort">
+      <soap:address location="http://localhost:9010/wageCalculator"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9010/wageCalculator</con:endpoint></con:endpoints><con:operation id="bf3369e1-c5d7-434d-9303-4da2c9e10cd4" isOneWay="false" action="" name="getNetIncome" bindingOperationName="getNetIncome" type="Request-Response" outputName="getNetIncomeResponse" inputName="getNetIncome" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9f7ad44f-be96-4b17-8428-558d94302f5d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9010/wageCalculator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.wagec.osborn.j45.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getNetIncome>\r
+         <arg0>1000.0</arg0>\r
+         <arg1>Linear</arg1>\r
+      </ser:getNetIncome>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.wagec.osborn.j45.org/WageCalculator/getNetIncome"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="aeaf9349-9737-4eb4-b8a4-a6d27eb212e6" isOneWay="false" action="" name="getSocialCosts" bindingOperationName="getSocialCosts" type="Request-Response" outputName="getSocialCostsResponse" inputName="getSocialCosts" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bba4f160-d27b-49b3-a306-e994a8cf7223" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9010/wageCalculator</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.wagec.osborn.j45.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getSocialCosts>\r
+         <arg0>?</arg0>\r
+         <!--Optional:-->\r
+         <arg1>?</arg1>\r
+      </ser:getSocialCosts>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.wagec.osborn.j45.org/WageCalculator/getSocialCosts"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

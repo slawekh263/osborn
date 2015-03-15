@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions name="HelloWorld" targetNamespace="http://server.hw.demo/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://server.hw.demo/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema elementFormDefault="unqualified" targetNamespace="http://server.hw.demo/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:tns="http://server.hw.demo/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+      <xsd:element name="getUsers" type="tns:getUsers"/>
+      <xsd:element name="getUsersResponse" type="tns:getUsersResponse"/>
+      <xsd:element name="sayHi" type="tns:sayHi"/>
+      <xsd:element name="sayHiResponse" type="tns:sayHiResponse"/>
+      <xsd:element name="sayHiToUser" type="tns:sayHiToUser"/>
+      <xsd:element name="sayHiToUserResponse" type="tns:sayHiToUserResponse"/>
+      <xsd:complexType name="getUsers">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:complexType name="getUsersResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:IntegerUserMap"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IntegerUserMap">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="entry" type="tns:IdentifiedUser"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IdentifiedUser">
+        <xsd:sequence>
+          <xsd:element name="id" type="xs:int"/>
+          <xsd:element minOccurs="0" name="user" type="tns:User"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="User">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="sayHiToUser">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arg0" type="tns:User"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="sayHiToUserResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="sayHi">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="sayHiResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="sayHi">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:sayHi"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="getUsers">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:getUsers"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="sayHiToUser">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:sayHiToUser"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="sayHiToUserResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:sayHiToUserResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="sayHiResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:sayHiResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="getUsersResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:getUsersResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="HelloWorld">
+    <WL5G3N0:operation name="getUsers">
+      <WL5G3N0:input name="getUsers" message="WL5G3N1:getUsers"/>
+      <WL5G3N0:output name="getUsersResponse" message="WL5G3N1:getUsersResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="sayHiToUser">
+      <WL5G3N0:input name="sayHiToUser" message="WL5G3N1:sayHiToUser"/>
+      <WL5G3N0:output name="sayHiToUserResponse" message="WL5G3N1:sayHiToUserResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="sayHi">
+      <WL5G3N0:input name="sayHi" message="WL5G3N1:sayHi"/>
+      <WL5G3N0:output name="sayHiResponse" message="WL5G3N1:sayHiResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="HelloWorldSoapBinding" type="WL5G3N1:HelloWorld">
+    <WL5G3N2:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <WL5G3N0:operation name="getUsers">
+      <WL5G3N2:operation style="document"/>
+      <WL5G3N0:input name="getUsers">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="getUsersResponse">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="sayHiToUser">
+      <WL5G3N2:operation style="document"/>
+      <WL5G3N0:input name="sayHiToUser">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="sayHiToUserResponse">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="sayHi">
+      <WL5G3N2:operation style="document"/>
+      <WL5G3N0:input name="sayHi">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="sayHiResponse">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="HelloWorldSoapBindingQSService">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port name="HelloWorldSoapBindingQSPort" binding="WL5G3N1:HelloWorldSoapBinding">
+      <WL5G3N2:address location="http://127.0.0.1:7003/conferencing_system/HelloProxyService"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

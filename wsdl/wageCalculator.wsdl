@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://server.wagec.osborn.j45.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="WageCalculator" targetNamespace="http://server.wagec.osborn.j45.org/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://server.wagec.osborn.j45.org/" elementFormDefault="unqualified" targetNamespace="http://server.wagec.osborn.j45.org/" version="1.0">
+
+  <xs:element name="getNetIncome" type="tns:getNetIncome"/>
+
+  <xs:element name="getNetIncomeResponse" type="tns:getNetIncomeResponse"/>
+
+  <xs:element name="getSocialCosts" type="tns:getSocialCosts"/>
+
+  <xs:element name="getSocialCostsResponse" type="tns:getSocialCostsResponse"/>
+
+  <xs:complexType name="getSocialCosts">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getSocialCostsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNetIncome">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:float"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNetIncomeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getNetIncome">
+    <wsdl:part element="tns:getNetIncome" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSocialCostsResponse">
+    <wsdl:part element="tns:getSocialCostsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNetIncomeResponse">
+    <wsdl:part element="tns:getNetIncomeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSocialCosts">
+    <wsdl:part element="tns:getSocialCosts" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WageCalculator">
+    <wsdl:operation name="getSocialCosts">
+      <wsdl:input message="tns:getSocialCosts" name="getSocialCosts">
+    </wsdl:input>
+      <wsdl:output message="tns:getSocialCostsResponse" name="getSocialCostsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNetIncome">
+      <wsdl:input message="tns:getNetIncome" name="getNetIncome">
+    </wsdl:input>
+      <wsdl:output message="tns:getNetIncomeResponse" name="getNetIncomeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WageCalculatorSoapBinding" type="tns:WageCalculator">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getNetIncome">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNetIncome">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNetIncomeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSocialCosts">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSocialCosts">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSocialCostsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WageCalculator">
+    <wsdl:port binding="tns:WageCalculatorSoapBinding" name="WageCalculatorImplPort">
+      <soap:address location="http://localhost:9010/wageCalculator"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

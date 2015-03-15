@@ -1,0 +1,77 @@
+
+
+<ser:getTaxpayerByName>
+    <arg0>{$taxpayerName}</arg0>
+</ser:getTaxpayerByName>
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <ser:getTaxpayerByName xmlns:ser="http://server.hw.demo/">
+      <arg0>Wladyslaw</arg0>
+    </ser:getTaxpayerByName>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.wagec.osborn.j45.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getTaxpayerByName>
+         <arg0>Wladyslaw</arg0>
+      </ser:getTaxpayerByName>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns2:getTaxpayerByNameResponse xmlns:ns2="http://server.wagec.osborn.j45.org/">
+         <return>
+            <name>Wladyslaw</name>
+            <irs>Urzad Podatkowy Krakow Podgorze</irs>
+            <income>4000.0</income>
+         </return>
+      </ns2:getTaxpayerByNameResponse>
+   </soap:Body>
+</soap:Envelope>
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.hw.demo/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:sayHi>
+         <arg0>Miet</arg0>
+      </ser:sayHi>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns2:sayHiResponse xmlns:ns2="http://server.hw.demo/">
+         <return>Hello Miet</return>
+      </ns2:sayHiResponse>
+   </soap:Body>
+</soap:Envelope>
+
+
+$body/ser:getUsersResponse/return/entry/id
+
+
+ID: 1
+Address: http://localhost:9010/wageCalculator
+Encoding: UTF-8
+Http-Method: POST
+Content-Type: text/xml; charset=UTF-8
+Headers: {Accept=[text/html, image/gif, image/jpeg, */*; q=.2], connection=[keep-alive], content-type=[text/xml; charset=UTF-8], ECID-Context=[1.aa471ca0-96c4-4c12-86a4-d313d4e2c89a-00000205;kZhgv1YD6SRRrP
+GJuIKJs1HCCHFIo4KCk0CCk2CWcVQSXJOR_U8PhJUB_OSTi3VRXU9HsKTPmUPOgIGRXJRQ2VOU3VPRkVQR_UOTnLFJJIJMTGZGZKSULGSPXKTPJHSRo4USpLO], Host=[localhost:9010], transfer-encoding=[chunked], User-Agent=[Java1.7.0_75]}
+Payload: 
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <ser:getTaxpayerByName xmlns:ser="http://server.hw.demo/">
+      <arg0/>
+    </ser:getTaxpayerByName>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+--------------------------------------
+
+
